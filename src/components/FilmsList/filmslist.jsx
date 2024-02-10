@@ -34,7 +34,7 @@ const FilmsList = () => {
     },[])
     return (
         <ul className='films'>
-         {filmsInfo.splice(0,6).map(e => {
+         {filmsInfo.map(e => {
             return (
                 <FilmsItem film = {e} key = {e.id}/>
             )

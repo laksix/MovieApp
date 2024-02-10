@@ -5,7 +5,7 @@ ul, li {
     }
 .films {
     background-color: inherit;
-    width: 939px;
+    width: inherit;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -15,7 +15,6 @@ ul, li {
     gap: 36px;
     list-style-type: none;
     list-style: none;
-    position: absolute;
-    top: 21px;
-    left: 34px;
+    align-items: center;
+    justify-content: center;
 }
