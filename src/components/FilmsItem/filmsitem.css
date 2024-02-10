@@ -1,0 +1,45 @@
+.films-item{
+    width: 451px;
+    height: 279px;
+    background-color: inherit;
+    list-style-type: none;
+    margin-left: 0;
+    list-style: none;
+    box-shadow: 0px 4px 12px 0px #00000026;
+
+}
+.contanier {
+    display: flex;
+    flex-direction: row;
+    
+}
+.contanier-info{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    gap: 15px;
+    margin-top: 10px;
+}
+.contanier-img {
+    width: 183px;
+    height: auto;
+}
+.contanier-name {
+    font-family: "Inter UI";
+    font-size: 20px;
+    line-height: 28px;
+    color: #000000;
+    font-weight: bold;
+}
+.contanier-date {
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 22px;
+    color: #827E7E;
+}
+.contanier-description {
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 22px;
+    color: #000000;
+}
