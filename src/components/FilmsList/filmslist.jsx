@@ -1,13 +1,13 @@
 import React,{useState,useEffect} from 'react';
 import './filmslist.css' 
 import FilmsItem from '../FilmsItem';
-
-
+import Loader from '../loader';
+import LoaderError from '../loaderError';
 
  
 
 const FilmsList = () => {
-    const getAllFilmsByName = async (url) => {
+    const getInfo = async (url) => {
         const options = {
             method: 'GET',
             headers: {
@@ -22,24 +22,39 @@ const FilmsList = () => {
         const films = await res.json();
         return films
     }
-    const [filmsInfo,setInfo] = useState([])
+    const [loadStatus,setLoadStatus] = useState()
+    const [filmsInfo,setFilmsInfo] = useState([])
+    const [errorStatus,setErrorStatus] = useState()
     useEffect(() => {
-        getAllFilmsByName('https://api.themoviedb.org/3/movie/top_rated')
+        setLoadStatus(true)
+        setErrorStatus(false)
+        getInfo('https://api.themoviedb.org/3/movie/top_rated')
         .then((films) => {
-            setInfo(films.results)
+            setFilmsInfo(films.results)
+            setLoadStatus(false)
         })
-        .catch((err) => {
-            console.log(err)
+        .catch(() => {
+            setErrorStatus(true)
         })
     },[])
+    if (loadStatus === true && errorStatus === false){
+        return (
+            <Loader/>
+        )
+    } else if (errorStatus === true){
+        return (
+            <LoaderError/>
+        )
+    } 
+    else {
     return (
         <ul className='films'>
          {filmsInfo.map(e => {
             return (
-                <FilmsItem film = {e} key = {e.id}/>
+                <FilmsItem getInfo = {getInfo} film = {e} key = {e.id}/>
             )
          })}
         </ul>
-    )
+    )}
 }
 export default FilmsList
