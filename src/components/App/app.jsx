@@ -1,9 +1,10 @@
 import React from 'react';
-import FilmsList from '../FilmsList/filmslist';
+import TabsPanel from '../tabs';
+
 const App = () => {
   
   return (
-    <FilmsList/>
+    <TabsPanel/>
   )
 };
 

@@ -52,12 +52,11 @@
 .loadingio-spinner-bean-eater-ol5pbdnhuue {
   width: 200px;
   height: 200px;
-  display: inline-block;
   overflow: hidden;
-  background: #ffffff;
-  position: absolute;
-  top:250px;
-  right: 520px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
 }
 .ldio-8wjutrlxr2o {
@@ -70,3 +69,9 @@
   background-color: #ffffff;
   }
 .ldio-8wjutrlxr2o div { box-sizing: content-box; }
+.loader{
+  width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
