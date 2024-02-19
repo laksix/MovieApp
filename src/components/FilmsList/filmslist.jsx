@@ -6,8 +6,7 @@ import LoaderError from '../loaderError';
 import PaginationType from '../pagination';
 import InputType from '../input';
 import {debounce} from 'lodash'
-const FilmsList = () => {
-    
+const FilmsList = ({guestSession,currentTab}) => {
     const getInfo = async (url) => {
         const options = {
             method: 'GET',
@@ -23,7 +22,6 @@ const FilmsList = () => {
         const films = await res.json();
         return films
     }
-    
     const [loadStatus,setLoadStatus] = useState()
     const [filmsInfo,setFilmsInfo] = useState([])
     const [errorStatus,setErrorStatus] = useState()
@@ -31,19 +29,30 @@ const FilmsList = () => {
     const [totalPages,setTotalPages] = useState(0);
     const [apiUrl,setApiUrl] = useState('https://api.themoviedb.org/3/movie/top_rated')
     useEffect(() => {
+        if (currentTab === '2'){
+            setApiUrl(`https://api.themoviedb.org/3/guest_session/${guestSession}/rated/movies`)
+        } else setApiUrl('https://api.themoviedb.org/3/movie/top_rated')
+    },[currentTab])
+    useEffect(() => {
+        setFilmsInfo([])
+        console.log(filmsInfo)
         setLoadStatus(true)
         setErrorStatus(false)
         getInfo(apiUrl)
         .then((films) => {
             setFilmsInfo(films.results)
-            setLoadStatus(false)
             if (totalPages === 0) {
                 setTotalPages(films.total_pages)
             }
         })
+        .then (() => {
+            setLoadStatus(false)
+        })
         .catch(() => {
             setErrorStatus(true)
         })
+        
+
     },[apiUrl])
      const [genreInfo,setGenreInfo] = useState([])
     useEffect(() => {
@@ -55,7 +64,6 @@ const FilmsList = () => {
             console.log(err)
         })
     },[])
-    console.log(genreInfo)
     function getCurrentPage (page) {
         setCurrentPage(page)
         setApiUrl(`https://api.themoviedb.org/3/movie/now_playing?&language=en-US&page=${currentPage}`)
@@ -63,45 +71,47 @@ const FilmsList = () => {
     
     const updateQuery = (e) => setApiUrl(`https://api.themoviedb.org/3/search/movie?query=${e.target.value}&include_adult=false&language=en-US&page=1`)
     const debouncedOnChange = debounce(updateQuery,500)
-    
+    console.log(currentTab)
     
     
         if (loadStatus === true && errorStatus === false){
         return (
             <>
-            <InputType debouncedOnChange = {debouncedOnChange}/>
+            {currentTab == '1' ? <InputType debouncedOnChange = {debouncedOnChange}/> : null}
             <Loader/>
             </>
         )
     } else if (errorStatus === true){
         return (
             <>
-            <InputType debouncedOnChange = {debouncedOnChange}/>
+            {currentTab == '1' ? <InputType debouncedOnChange = {debouncedOnChange}/> : null}
             <LoaderError/>
             </>
         )
-    } 
+    }
     else {
     return (
         <>
-        <InputType debouncedOnChange = {debouncedOnChange}/>
+        {currentTab == '1' ? <InputType debouncedOnChange = {debouncedOnChange}/> : null}
         <ul className='films'>
          {filmsInfo.map(e => {
             
             return (
-                <FilmsItem filmGenres = {e.genre_ids.map(ids => {
+                <FilmsItem
+                guestSession = {guestSession}
+                filmGenres = {e.genre_ids.map(ids => {
                     for (let key = 0; key <= genreInfo.length; key++){
                         const element = genreInfo[key];
-                        if (element.id === ids){
+                        if (element?.id === ids){
                             return element.name
                         }
                     }
-                })} getInfo = {filmsInfo} film = {e} key = {e.id}/>
+                })} rated = {e.rating} getInfo = {filmsInfo} film = {e} key = {e.id}/>
                 
             )
          })}
         </ul>
-        <PaginationType totalPages = {totalPages} currentPage = {currentPage} setCurrentPage = {setCurrentPage} getCurrentPage = {getCurrentPage}/>
+        {currentTab == '1' ? <PaginationType totalPages = {totalPages} currentPage = {currentPage} setCurrentPage = {setCurrentPage} getCurrentPage = {getCurrentPage}/> : null}
         </>
     )}
 }

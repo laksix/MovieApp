@@ -1,22 +1,24 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Tabs } from 'antd';
 import FilmsList from '../FilmsList/filmslist';
 import './tabs.css'
-const items = [
+const TabsPanel = ({guestSession}) => {
+  const [currentTab,setCurrentTab] = useState('1');
+  
+  const items = [
     {
       key: '1',
       label: 'Search',
-      children: <FilmsList/>
+      children: <FilmsList currentTab = {currentTab} guestSession = {guestSession}/>
     },
     {
       key: '2',
       label: 'Rated',
-      children: '```'
+      children: <FilmsList currentTab = {currentTab} guestSession = {guestSession}/>,
     },
   ];
-const TabsPanel = () => {
     return (
-        <Tabs defaultActiveKey="1" items={items} width = {1100} className='tabs-options' size = {'middle'}/>
+        <Tabs onTabClick={(key) => {setCurrentTab(key)}} defaultActiveKey="1" items={items} className='tabs-options' size = {'middle'}/>
     )
 }
 export default TabsPanel
