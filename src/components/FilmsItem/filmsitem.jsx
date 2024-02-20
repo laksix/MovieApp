@@ -31,7 +31,6 @@ const FilmsItem = ({film,filmGenres,guestSession,rated}) => {
 },[currentRated])
     
     const [rating,setRating] = useState(0)
-    console.log(rated)
     const [voteColor,setVoteColor] = useState('')
     useEffect(() => {
        setRating(rated)
