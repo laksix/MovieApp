@@ -1,2 +1,1 @@
-import TabsPanel from "./tabs";
-export default TabsPanel
+import TabsPanel from './tabs';export default TabsPanel;

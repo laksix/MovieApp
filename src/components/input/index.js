@@ -1,2 +1,1 @@
-import InputType from "./input";
-export default InputType
+import InputType from './input';export default InputType;

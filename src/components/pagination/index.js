@@ -1,2 +1,1 @@
-import PaginationType from "./pagination";
-export default PaginationType
+import PaginationType from './pagination';export default PaginationType;

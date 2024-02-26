@@ -1,2 +1,1 @@
-import FilmsItem from "./filmsitem";
-export default FilmsItem
+import FilmsItem from './filmsitem';export default FilmsItem;

@@ -1,2 +1,1 @@
-import LoaderError from "./loaderError";
-export default LoaderError
+import LoaderError from './loaderError';export default LoaderError;

@@ -1,12 +1,1 @@
-.error-img {
-    width: 400px;
-    height: 400px;
-}
-.error-contanier{
-    width: 1100px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-
-}
+.error-img {  width: 400px;  height: 400px;}.error-contanier {  width: 1100px;  display: flex;  flex-direction: column;  text-align: center;  align-items: center;}

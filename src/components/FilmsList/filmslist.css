@@ -1,20 +1,1 @@
-
-ul, li {
-    margin: 0;
-    padding: 0;
-    }
-.films {
-    background-color: inherit;
-    width: inherit;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 36px;
-    list-style-type: none;
-    list-style: none;
-    align-items: center;
-    justify-content: center;
-}
+ul,li {  margin: 0;  padding: 0;}.films {  background-color: inherit;  width: inherit;  height: auto;  margin-left: auto;  margin-right: auto;  display: flex;  flex-direction: row;  flex-wrap: wrap;  gap: 36px;  list-style-type: none;  list-style: none;  align-items: center;  justify-content: flex-start;  margin-left: 30px;}

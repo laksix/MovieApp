@@ -1,97 +1,1 @@
-.films-item{
-    width: 451px;
-    height: 279px;
-    background-color: inherit;
-    list-style-type: none;
-    margin-left: 0;
-    list-style: none;
-    box-shadow: 0px 4px 12px 0px #00000026;
-    position: relative;
-
-}
-.contanier {
-    display: flex;
-    flex-direction: row;
-    
-}
-.posAb {
-    position: absolute !important;
-    transform: scale(0.9);
-}
-.contanier-info{
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    margin-right: 12px;
-    padding-right: 10px;
-    padding-left: 205px;
-}
-
-.contanier-name {
-    font-family: "Inter";
-    font-size: 20px;
-    line-height: 28px;
-    color: #000000;
-    font-weight: 400;
-    padding-bottom: 7px;
-    padding-right: 10px;
-}
-.contanier-date {
-    font-family: inherit;
-    font-size: 12px;
-    line-height: 22px;
-    color: #827E7E;
-    padding-bottom: 4px;
-}
-.contanier-type{
-    padding-bottom: 6px;
-}
-.contanier-type-text {
-    font-family: inherit;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14.52px;
-    color: #000000A6;
-    padding-bottom: 3px;
-    padding-top: 3px;
-
-}
-.contanier-description {
-    font-family: inherit;
-    font-size: 12px;
-    line-height: 22px;
-    color: #000000;
-}
-.contanier-vote {
-    width: 30px;
-    height: 30px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    border-width: 2px;
-    border-style: solid;
-    position: absolute;
-    right: 5px;
-    text-align: center;
-}
-.contanier-vote-text {
-    font-size: 12px;
-    line-height: 22px;
-    font-weight: 400;
-    font-family: inherit;
-    margin-top: 3.5px;
-}
-.vote-green {
-    border-color: #66E900
-}
-.vote-yellow {
-    border-color: #E9D100
-}
-.vote-red {
-    border-color: #E97E00;
-}
-.vote-bad {
-    border-color: #E90000;
-}
-.contanier-rated {
-    margin-top: 5px;
-}
+.films-item {  width: 502px;  height: 279px;  background-color: inherit;  list-style-type: none;  margin-left: 0;  list-style: none;  box-shadow: 0px 4px 12px 0px #00000026;  position: relative;}.contanier {  display: flex;  flex-direction: row;}.posAb {  position: absolute !important;  transform: scale(0.9);}.contanier-info {  display: flex;  flex-direction: column;  margin-top: 10px;  margin-right: 12px;  padding-right: 10px;  padding-left: 262px;}.contanier-name {  font-family: 'Inter';  font-size: 20px;  line-height: 28px;  color: #000000;  font-weight: 400;  padding-bottom: 7px;  padding-right: 10px;}.contanier-date {  font-family: inherit;  font-size: 12px;  line-height: 22px;  color: #827e7e;  padding-bottom: 4px;}.contanier-type {  padding-bottom: 6px;}.contanier-type-text {  font-family: inherit;  font-weight: 400;  font-size: 12px;  line-height: 14.52px;  color: #000000a6;  padding-bottom: 3px;  padding-top: 3px;}.contanier-description {  font-family: inherit;  font-size: 12px;  line-height: 22px;  color: #000000;}.contanier-vote {  width: 30px;  height: 30px;  background-color: #ffffff;  border-radius: 20px;  border-width: 2px;  border-style: solid;  position: absolute;  right: 5px;  text-align: center;}.contanier-vote-text {  font-size: 12px;  line-height: 22px;  font-weight: 400;  font-family: inherit;  margin-top: 3.5px;}.vote-green {  border-color: #66e900;}.vote-yellow {  border-color: #e9d100;}.vote-red {  border-color: #e97e00;}.vote-bad {  border-color: #e90000;}.contanier-rated {  margin-top: 5px;}
