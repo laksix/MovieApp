@@ -20,16 +20,19 @@ const FilmsList = ({ guestSession, currentTab }) => {
     } else setApiUrl('https://api.themoviedb.org/3/movie/top_rated');
   }, [currentTab]);
   useEffect(() => {
+    let isActual = true
     setFilmsInfo([]);
     setLoadStatus(true);
     setErrorStatus(false);
     getInfo(apiUrl)
       .then((films) => {
-        setFilmsInfo(films.results);
+        if (isActual){
+          setFilmsInfo(films.results);
         if (totalPages === 0) {
           setTotalPages(films.total_pages);
         }
         setLoadStatus(false);
+        }
       })
       .then(() => {
         setLoadStatus(false);
@@ -37,7 +40,7 @@ const FilmsList = ({ guestSession, currentTab }) => {
       .catch(() => {
         setErrorStatus(true);
       });
-      return () => setFilmsInfo(null)
+      return () => isActual = false
   }, [apiUrl]);
   const [genreInfo, setGenreInfo] = useState([]);
   useEffect(() => {
